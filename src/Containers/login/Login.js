@@ -13,7 +13,7 @@ const Login = (props) => {
         console.log(password);
         setRolNo("");
         setPassword("");
-        props.navigation.push('Home');
+        props.navigation.navigate('App');
     }
 
     return(

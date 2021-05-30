@@ -1,8 +1,7 @@
 import {StyleSheet}  from 'react-native'
+
 import Colors from '../../Themes/Colors';
-import Metrics from '../../Themes/Metrics';
-
-
+import Metrics from '../../Themes/Metrics'
 export default StyleSheet.create({
     heading:{
         fontFamily : 'serif',
@@ -10,7 +9,8 @@ export default StyleSheet.create({
         fontWeight: "bold",
         paddingTop : Metrics.paddingSmall,
         marginLeft : Metrics.marginSmall,
-        color : 'red'
+        color : 'white',
+        marginTop : Metrics.marginLarge+Metrics.marginMedium
     },
     subheading : {
         fontWeight:"bold",
@@ -20,8 +20,7 @@ export default StyleSheet.create({
         marginLeft : Metrics.marginSmall
     },
     screenStyle:{
-        margin:Metrics.marginSmall,
-        paddingVertical : Metrics.screenHeight/40,
-        backgroundColor : '#faf9f9'
+        backgroundColor : '#1E2749',
+        height : Metrics.screenHeight
     }
 })

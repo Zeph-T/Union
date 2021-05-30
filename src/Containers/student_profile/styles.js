@@ -1,8 +1,6 @@
-import {StyleSheet}  from 'react-native'
+import {StyleSheet, TouchableWithoutFeedback}  from 'react-native'
 import Colors from '../../Themes/Colors';
-import Metrics from '../../Themes/Metrics';
-
-
+import Metrics from '../../Themes/Metrics'
 export default StyleSheet.create({
     heading:{
         fontFamily : 'serif',
