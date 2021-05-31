@@ -14,7 +14,7 @@ const Notifications = props => {
                     {
                         data.map((item, index) =>{
                             return(
-                                <Card key={index} style={styleCard.announcementCard}>
+                                <Card key={index} style={{...styleCard.announcementCard,backgroundColor:item.color}}>
                                     <Card.Content>
                                         <Title>
                                             {item.name}

@@ -7,14 +7,14 @@ import styleCard from './style';
 
 const Announcements = props => {
     return (
-        <View>
+        <View style={styleCard.announcementContainer}>
             <Title style={styleCard.announcementHeading}>Announcements! 🚀</Title>
             <View style={styleCard.announcementScrollView}>
                 <ScrollView>
                     {
                         data.map((item, index) =>
                         (
-                                <Card key={index} style={styleCard.announcementCard}>
+                                <Card key={index} style={{...styleCard.announcementCard,backgroundColor : item.color}}>
                                     <Card.Content>
                                         <Title>
                                             {item.name}

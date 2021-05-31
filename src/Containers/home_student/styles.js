@@ -20,8 +20,7 @@ export default StyleSheet.create({
         marginLeft : Metrics.marginSmall
     },
     screenStyle:{
-        margin:Metrics.marginSmall,
         paddingVertical : Metrics.screenHeight/40,
-        backgroundColor : '#faf9f9'
+        backgroundColor : '#1E2749'
     }
 })

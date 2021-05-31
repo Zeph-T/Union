@@ -14,15 +14,18 @@ export default StyleSheet.create({
         shadowRadius : 8,
         elevation : 5,
         borderRadius :0,
-        backgroundColor : 'white'
+        backgroundColor : 'white',
+        borderRadius : 5,
+        borderColor : 'black',
+        borderWidth : 5
     },
     announcementScrollView:{
-        height : Metrics.screenHeight/3.4,
+        height : Metrics.screenHeight/3,
     },
     announcementHeading : {
         fontSize  : 30,
         fontWeight : '200',
-        color : 'black',
+        color : 'white',
         fontWeight :'300',
         fontFamily :'sans-serif-medium',
         marginVertical : Metrics.marginSmall,
