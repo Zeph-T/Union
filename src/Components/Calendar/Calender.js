@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Calendar } from 'react-native-calendars';
-// import Dialog, { SlideAnimation, DialogContent ,DialogTitle,DialogFooter,DialogButton} from 'react-native-popup-dialog';
-// import Dialog from 'react-native-dialog';
-import { View,Text,ScrollView} from 'react-native';
-import { Button, Paragraph, Dialog, Portal } from 'react-native-paper';
+import { View, ScrollView } from 'react-native';
+import { Paragraph, Dialog, Portal } from 'react-native-paper';
 import metrics from '../../Themes/Metrics';
+
+
+
 const EventCalendar = () => {
   const [DialogVisible, setDialogVisible] = useState(false);
   const markedDates = {
@@ -28,58 +29,31 @@ const EventCalendar = () => {
     setDialogVisible(true);
   }
   return (
-      <View>
-    <Portal>
-      <Dialog visible={DialogVisible} onDismiss={HandleDialogClose}>
-        {/* <Dialog.Title>{selectedTitle}</Dialog.Title>
-        <Dialog.Content>
-          <Paragraph>{selectedDescription}</Paragraph>
-        </Dialog.Content> */}
-        <Dialog.ScrollArea>
-          <ScrollView contentContainerStyle={{height : metrics.screenHeight/1.5,alignItems : 'center',justifyContent : 'center'}}>
-            <Dialog.Title>
-              {selectedTitle}
-            </Dialog.Title>
-            <Dialog.Content>
-              <Paragraph>
-              {selectedDescription}
-              </Paragraph>
-            </Dialog.Content>
-            <Dialog.Title>
-              {selectedTitle}
-            </Dialog.Title>
-            <Dialog.Content>
-              <Paragraph>
-              {selectedDescription}
-              </Paragraph>
-            </Dialog.Content>
-          </ScrollView>
-        </Dialog.ScrollArea>
-      </Dialog>
-    </Portal>
-
-      {/* <View>
-        <Dialog
-          visible={DialogVisible}
-          dialogAnimation={new SlideAnimation({
-            slideFrom: 'bottom',
-          })}
-        >
-          <DialogTitle>
-            <Text>
-            {selectedTitle}
-            </Text>
-          </DialogTitle>
-          <DialogContent>
-            <Text>
-            {selectedDescription}
-            </Text>
-          </DialogContent>
-          <DialogFooter>
-            <DialogButton text="Cancel" onPress={()=>HandleDialogClose()}/>
-           </DialogFooter>
+    <View>
+      <Portal>
+        <Dialog visible={DialogVisible} onDismiss={HandleDialogClose}>
+          <Dialog.ScrollArea>
+            <ScrollView contentContainerStyle={{ height: metrics.screenHeight / 1.5, alignItems: 'center', justifyContent: 'center' }}>
+              <Dialog.Title>
+                {selectedTitle}
+              </Dialog.Title>
+              <Dialog.Content>
+                <Paragraph>
+                  {selectedDescription}
+                </Paragraph>
+              </Dialog.Content>
+              <Dialog.Title>
+                {selectedTitle}
+              </Dialog.Title>
+              <Dialog.Content>
+                <Paragraph>
+                  {selectedDescription}
+                </Paragraph>
+              </Dialog.Content>
+            </ScrollView>
+          </Dialog.ScrollArea>
         </Dialog>
-      </View> */}
+      </Portal>
       <Calendar
         // Specify style for calendar container element. Default = {}
         style={{
@@ -102,8 +76,8 @@ const EventCalendar = () => {
         }}
         onDayPress={(day) => openDialog(day)}
         markedDates={{
-          '2021-05-16': { selected: true, marked: true, selectedColor: 'red',backgroundColor : 'red' },
-          '2021-05-17': { marked: true,selectedColor : 'green' },
+          '2021-05-16': { selected: true, marked: true, selectedColor: 'red', backgroundColor: 'red' },
+          '2021-05-17': { marked: true, selectedColor: 'green' },
           '2021-05-18': { marked: true, selectedColor: 'green', activeOpacity: 0 },
         }}
         // Specify theme properties to override specific styles for calendar parts. Default = {}
@@ -134,7 +108,7 @@ const EventCalendar = () => {
         }}
         hideExtraDays={true}
       />
-      </View>
+    </View>
   )
 }
 
