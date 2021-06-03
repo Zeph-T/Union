@@ -11,11 +11,11 @@ const Club = (props) => {
             <Title style={styleCard.heading}>
                     Clubs ♣️
             </Title>
-            <ClubCard image={Images.uthaanlogo} name="Uthaan"/>
-            <ClubCard image={Images.aasflogo} name="Aasf" />
-            <ClubCard image={Images.dsclogo}  name="Developer Student Clubs"/>
-            <ClubCard image={Images.ieeelogo} name="IEEE Student Branch"/>
-            <ClubCard image={Images.ecelllogo} name="E-Cell"/>
+            <ClubCard image={Images.uthaanlogo} {...props}  name="Uthaan"/>
+            <ClubCard image={Images.aasflogo} {...props} name="Aasf" />
+            <ClubCard image={Images.dsclogo} {...props}  name="Developer Student Clubs"/>
+            <ClubCard image={Images.ieeelogo} {...props} name="IEEE Student Branch"/>
+            <ClubCard image={Images.ecelllogo} {...props} name="E-Cell"/>
         </ScrollView>
     )
 }

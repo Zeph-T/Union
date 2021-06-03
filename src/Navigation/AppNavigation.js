@@ -4,9 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import StudentProfile from '../Containers/student_profile/StudentProfile';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Events from '../Containers/event_calender/EventCalender';
-import Club from '../Containers/clubs/club';
-
-
+// import Club from '../Containers/clubs/club';
+import ClubNavigation from '../Navigation/clubNavigation';
 const Tab = createBottomTabNavigator();
 
 export default AppNavigation = () => {
@@ -34,7 +33,7 @@ export default AppNavigation = () => {
         />
         <Tab.Screen
         name="Clubs"
-        component={Club}
+        component={ClubNavigation}
         options={{
             tabBarIcon : ()=>(
                 <MaterialIcons name="groups" size={30} />
