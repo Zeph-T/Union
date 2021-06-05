@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Segment, Button, Text } from 'native-base';
 import {View} from 'react-native';
-import ClubInfo from '../../Components/ClubInfo/ClubInfo';
+import ClubInfo from '../ClubAboutUs/ClubAboutUs';
+import ClubTeam from '../ClubTeam/ClubTeam'
 
 const ClubSegment = (props) => {
     const [activePage, setActivePage] = useState(1);
@@ -13,9 +14,7 @@ const ClubSegment = (props) => {
                 )
             case 2:
                 return (
-                    <Text>
-                        Worlddd
-                    </Text>
+                    <ClubTeam />
                 )
             case 3:
                 return (
@@ -39,7 +38,7 @@ const ClubSegment = (props) => {
                     <Text>Future Events</Text>
                 </Button>
             </Segment>
-            <View style={{backgroundColor : 'red'}}>
+            <View>
             {renderContent()}
             </View>
         </View>

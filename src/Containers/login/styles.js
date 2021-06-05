@@ -6,8 +6,8 @@ export default StyleSheet.create({
     screen:{
         minHeight : Metrics.screenHeight,
         alignItems : 'center',
-        marginTop : Metrics.screenHeight/6,
-        margin:Metrics.screenWidth/20
+        justifyContent:'center',
+        marginHorizontal:Metrics.marginSmall
     },
     logo:{
         width:Metrics.screenWidth/1.5,

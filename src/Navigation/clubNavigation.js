@@ -8,7 +8,7 @@ const Tab = createStackNavigator();
 export default ClubNavigation = () => {
     return(
     <Tab.Navigator screenOptions={{
-        headerShown : false
+        headerShown:false
     }}>
         <Tab.Screen
         name="clubs"
@@ -17,9 +17,6 @@ export default ClubNavigation = () => {
         <Tab.Screen
         name="ClubDetail"
         component={ClubDetail}
-        screenOptions={{
-            headerShown : true
-        }}
         />
     </Tab.Navigator>
     )

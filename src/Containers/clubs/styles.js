@@ -9,10 +9,9 @@ export default StyleSheet.create({
         fontWeight: "bold",
         paddingTop : Metrics.paddingSmall,
         marginLeft : Metrics.marginSmall,
-        color : 'red'
+        color : 'red',
     },
     screenStyle:{
         paddingVertical : Metrics.screenHeight/40,
-        backgroundColor : '#1E2749'
     }
 })
