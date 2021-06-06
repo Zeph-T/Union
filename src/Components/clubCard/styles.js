@@ -4,6 +4,6 @@ import Metrics from '../../Themes/Metrics'
 
 export default StyleSheet.create({
     card:{
-        width:Metrics.screenWidth
+        margin : Metrics.marginSmall,
     }
 })

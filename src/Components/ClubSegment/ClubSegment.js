@@ -3,6 +3,8 @@ import { Segment, Button, Text } from 'native-base';
 import {View} from 'react-native';
 import ClubInfo from '../ClubAboutUs/ClubAboutUs';
 import ClubTeam from '../ClubTeam/ClubTeam'
+import ClubEvents from '../ClubEvents/ClubEvents';
+import Stylecard from './styles';
 
 const ClubSegment = (props) => {
     const [activePage, setActivePage] = useState(1);
@@ -18,24 +20,22 @@ const ClubSegment = (props) => {
                 )
             case 3:
                 return (
-                    <Text>
-                        Thirdddd
-                    </Text>
+                    <ClubEvents />
                 )
         }
     }
 
     return (
         <View>
-            <Segment>
-                <Button first active={activePage === 1} onPress={() => setActivePage(1)}>
+            <Segment style={Stylecard.segmentHeader}>
+                <Button style={Stylecard.button} first active={activePage === 1} onPress={() => setActivePage(1)}>
                     <Text>About Us</Text>
                 </Button>
-                <Button active={activePage === 2} onPress={() => setActivePage(2)}>
-                    <Text>Past Events</Text>
+                <Button style={Stylecard.button} active={activePage === 2} onPress={() => setActivePage(2)}>
+                    <Text>TEAM MEMBERS</Text>
                 </Button>
-                <Button last active={activePage === 3} onPress={() => setActivePage(3)}>
-                    <Text>Future Events</Text>
+                <Button style={Stylecard.button} last active={activePage === 3} onPress={() => setActivePage(3)}>
+                    <Text>EVENTS</Text>
                 </Button>
             </Segment>
             <View>

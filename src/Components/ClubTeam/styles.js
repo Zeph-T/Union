@@ -31,6 +31,10 @@ export default StyleSheet.create({
     socialMediaContainer : {
         alignItems : 'center',
         marginVertical:Metrics.marginSmall
+    },
+    Title:{
+        fontSize : Metrics.h2,
+        marginVertical : Metrics.marginSmall
     }
 
 })

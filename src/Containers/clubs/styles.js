@@ -13,5 +13,6 @@ export default StyleSheet.create({
     },
     screenStyle:{
         paddingVertical : Metrics.screenHeight/40,
+        // margin : Metrics.marginSmall
     }
 })

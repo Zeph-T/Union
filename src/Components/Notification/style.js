@@ -15,9 +15,7 @@ export default StyleSheet.create({
         elevation : 5,
         borderRadius :0,
         backgroundColor : 'white',
-        borderRadius : 5,
-        borderColor : 'black',
-        borderWidth : 5
+        borderRadius : 5
     },
     announcementScrollView:{
         height : Metrics.screenHeight/3,
@@ -25,11 +23,22 @@ export default StyleSheet.create({
     announcementHeading : {
         fontSize  : 30,
         fontWeight : '200',
-        color : 'white',
+        color : 'black',
         fontWeight :'300',
         fontFamily :'sans-serif-medium',
         marginVertical : Metrics.marginSmall,
         marginLeft : Metrics.marginSmall,
+    },
+    HeadingStyle:{
+        flexDirection : 'row',
+        justifyContent : 'flex-end'
+    },
+    SubheadingStyle : {
+        fontWeight : 'bold',
+        color:'grey'
+    },
+    postedby:{
+        flexDirection : 'row',
     }
 
 })

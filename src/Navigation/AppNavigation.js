@@ -10,16 +10,17 @@ const Tab = createBottomTabNavigator();
 
 export default AppNavigation = () => {
     return(
-        <Tab.Navigator screenOptions={{
+        <Tab.Navigator 
+        screenOptions={{
             headerShown : false
         }}>
         <Tab.Screen 
         name="Home"
         component={HomeStudent}
         options={{
-            tabBarIcon:()=>{
+            tabBarIcon:()=>(
                 <MaterialIcons name="home" size={30}/>
-            }
+            )
         }}
         />
         <Tab.Screen

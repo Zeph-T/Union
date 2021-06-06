@@ -5,6 +5,7 @@ import Images from '../../Themes/Images';
 import Metrics from '../../Themes/Metrics'
 import Swiper from 'react-native-swiper-hooks'
 import TeamMemberCard from '../TeamMember/TeamMemberCard'
+import Stylecard from './styles';
 
 const _renderList = () => {
     let listData = [
@@ -36,9 +37,9 @@ const _renderList = () => {
 
 const ClubTeam = () => (
     <ScrollView contentContainerStyle={{justifyContent : 'space-between'}} style={{marginHorizontal:Metrics.marginSmall,flexDirection : 'column'}}>
-        <Title style={{color:'green',fontSize : 30,marginVertical : Metrics.marginSmall}}>Mentor</Title>
+        <Title style={Stylecard.Title}>Mentor</Title>
         <TeamMemberCard image={Images.uthaanMentor} name="Rajendra Sahu" />
-        <Title style={{color:'green',fontSize : 30,marginVertical : Metrics.marginSmall}}>Team Members</Title>
+        <Title style={Stylecard.Title}>Team Members</Title>
         <View style={{borderColor: 'black', borderWidth: 5 }}>
             <Swiper
                 height={Metrics.screenHeight * 0.35}

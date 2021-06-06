@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Title} from 'react-native-paper';
+import {Card,Title,Paragraph,Subheading} from 'react-native-paper';
 import { ScrollView,View } from 'react-native'
 import data from '../../data/dummy-data';
 import styleCard from './style';
@@ -8,21 +8,28 @@ import styleCard from './style';
 const Notifications = props => {
     return (
         <View>
-            <Title style={styleCard.announcementHeading}>Latest Events! ⏳</Title>
+            <Title style={styleCard.announcementHeading}>{props.title}📰 </Title>
             <View style={styleCard.announcementScrollView}>
                 <ScrollView>
-                    {
-                        data.map((item, index) =>{
-                            return(
-                                <Card key={index} style={{...styleCard.announcementCard,backgroundColor:item.color}}>
-                                    <Card.Content>
+                {
+                        data.map((item, index) =>
+                        (
+                            <Card key={index} style={{ ...styleCard.announcementCard }}>
+                                <Card.Content>
+                                    <View style={styleCard.HeadingStyle}>
                                         <Title>
-                                            {item.name}
+                                            📅{item.date}
                                         </Title>
-                                    </Card.Content>
-                                </Card>
-                            )
-                        }
+                                    </View>
+                                    <Paragraph>
+                                        {item.info}
+                                    </Paragraph>
+                                    <View style={styleCard.postedby}>
+                                        <Subheading style={styleCard.SubheadingStyle}>Posted By : {item.Organiser}</Subheading>
+                                    </View>
+                                </Card.Content>
+                            </Card>
+                        )
                         )
                     }
                 </ScrollView>

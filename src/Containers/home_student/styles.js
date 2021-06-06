@@ -21,6 +21,6 @@ export default StyleSheet.create({
     },
     screenStyle:{
         paddingVertical : Metrics.screenHeight/40,
-        backgroundColor : '#1E2749'
+        backgroundColor : '#faf9f9'
     }
 })

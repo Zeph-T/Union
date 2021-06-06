@@ -25,12 +25,15 @@ export default StyleSheet.create({
     },
     cardImage : { borderColor: 'black', borderWidth: 3 },
     paragraph : { color: 'black', fontSize: Metrics.h3 },
+
+
     socialMediaContent : {
-        width:Metrics.screenWidth/1.5
+        padding:Metrics.paddingExtraSmall
     },
     socialMediaContainer : {
-        alignItems : 'center',
-        marginVertical:Metrics.marginSmall
+        flexDirection:'row',
+        justifyContent:'space-evenly'
+        // marginVertical:Metrics.marginSmall
     }
 
 })

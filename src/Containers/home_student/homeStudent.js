@@ -16,8 +16,8 @@ const HomeStudent = props => {
                     It has been a while!
                 </Paragraph>
             </View>
-            <Announcements />
-            <Notifications />
+            <Notifications title="News" />
+            <Announcements title='Latest Events'/>
         </ScrollView>
     )
 }

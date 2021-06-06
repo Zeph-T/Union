@@ -26,6 +26,7 @@
     "react-native-dialog": "^8.0.1",
     "react-native-elements": "^3.4.1",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-maps": "^0.28.0",
     "react-native-paper": "^4.9.1",
     "react-native-popup-dialog": "^0.18.3",
     "react-native-reanimated": "~2.1.0",

@@ -16,8 +16,8 @@ export default StyleSheet.create({
         borderRadius :0,
         backgroundColor :'white',
         borderRadius : 10,
-        borderColor : 'black',
-        borderWidth : 5
+        // borderColor : 'black',
+        // borderWidth : 5
     },
     announcementScrollView:{
         height : Metrics.screenHeight/3,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     announcementHeading : {
         fontSize  : 30,
         fontWeight : '200',
-        color : 'white',
+        color : 'black',
         fontWeight :'300',
         fontFamily :'sans-serif-medium',
         marginVertical : Metrics.marginSmall,
@@ -33,5 +33,17 @@ export default StyleSheet.create({
     },
     announcementContainer:{
         marginVertical : Metrics.marginSmall,
-    }
+    },
+    HeadingStyle:{
+        flexDirection:'row',
+        justifyContent :'space-between'
+    },
+    club:{
+        flexDirection : 'row',
+        justifyContent : 'flex-end'
+    },
+    SubheadingStyle : {
+        fontWeight : 'bold',
+        color:'grey'
+    },
 })
