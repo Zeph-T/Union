@@ -6,7 +6,8 @@ const images = {
     ecelllogo : require('../Assets/ecell.jpeg'),
     aasflogo : require('../Assets/aasf.png'),
     uthaangrp : require('../Assets/uthaangrp.jpg'),
-    uthaanMentor : require('../Assets/uMentor1.jpg')
+    uthaanMentor : require('../Assets/uMentor1.jpg'),
+    profilePic : require('../Assets/profilephoto.png')
 }
 
 export default images;

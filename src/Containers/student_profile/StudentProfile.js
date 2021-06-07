@@ -1,31 +1,73 @@
-import React from 'react';
-import { ScrollView, View } from 'react-native';
-import styleCard from './styles';
-import { Title, Paragraph } from 'react-native-paper';
-import Announcements from '../../Components/Anouncement/announcement';
-import MapView,{Marker} from 'react-native-maps';
-import metrics from '../../Themes/Metrics';
+import React, {useState} from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import styles from './styles';
+import Images from '../../Themes/Images'
+import Metrics from '../../Themes/Metrics';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const StudentProfile = props => {
+const StudentProfile = ({navigation}) => {
     return (
-        <ScrollView style={styleCard.screenStyle}>
-            <MapView
-            style={{width:metrics.screenWidth-10,height:metrics.screenWidth-10}}
-                initialRegion={{
-                    latitude: 33.7872131,
-                    longitude: -84.381931,
-                    latitudeDelta: .005,
-                    longitudeDelta: .005
-                }} >
-
-                <Marker
-                    coordinate={{ latitude: 33.7872131, longitude: -84.381931 }}
-                    title='Flatiron School Atlanta'
-                    description='This is where the magic happens!'
-                >
-                </Marker >
-            </MapView>
-        </ScrollView>
+        <ScrollView contentContainerStyle={styles.screen}>
+        <View style={styles.imageView}>
+          <Image
+            source={Images.profilePic}
+            style={styles.image}
+          />
+          <TouchableOpacity
+            style={styles.edit}
+            activeOpacity={0.8}>
+            <MaterialIcons name="edit" size={Metrics.h3} />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.name}>Hey User!</Text>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.8}
+          onPress={()=>navigation.navigate('ResetPassword')}>
+          <MaterialIcons name="vpn-key" size={Metrics.h2} />
+          <Text style={styles.text}>Reset Password</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.8}>
+          <MaterialIcons name="lightbulb" size={Metrics.h2}  />
+          <Text style={styles.text}>Drop a Suggestion</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.8}
+          onPress={()=>navigation.navigate('ReachUs')}>
+          <MaterialIcons
+            name="local-phone"
+            size={Metrics.h2}
+          />
+          <Text style={styles.text}>Reach Us</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.8}
+          onPress={()=>navigation.navigate('BugReport')}>
+          <MaterialIcons
+            name="bug-report"
+            size={Metrics.h2}
+          />
+          <Text style={styles.text}>Report a Bug</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.8}>
+          <MaterialIcons name="logout" size={Metrics.h2}  />
+          <Text style={styles.text}>Logout</Text>
+        </TouchableOpacity>
+      </ScrollView>
     )
 }
 

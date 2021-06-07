@@ -6,6 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Events from '../Containers/event_calender/EventCalender';
 // import Club from '../Containers/clubs/club';
 import ClubNavigation from '../Navigation/clubNavigation';
+import ProfileNavigation from '../Navigation/profileNavigation';
 const Tab = createBottomTabNavigator();
 
 export default AppNavigation = () => {
@@ -43,7 +44,7 @@ export default AppNavigation = () => {
         />
         <Tab.Screen
         name="Profile"
-        component={StudentProfile}
+        component={ProfileNavigation}
         options={{
             tabBarIcon : ()=>(
                 <MaterialIcons name="person" size={30} />
