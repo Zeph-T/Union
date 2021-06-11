@@ -33,6 +33,13 @@ const StudentProfile = ({navigation}) => {
           activeOpacity={0.8}
           onPress={()=>navigation.navigate('ResetPassword')}>
           <MaterialIcons name="vpn-key" size={Metrics.h2} />
+          <Text style={styles.text}>My Clubs!</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.card}
+          activeOpacity={0.8}
+          onPress={()=>navigation.navigate('ResetPassword')}>
+          <MaterialIcons name="vpn-key" size={Metrics.h2} />
           <Text style={styles.text}>Reset Password</Text>
         </TouchableOpacity>
         <TouchableOpacity

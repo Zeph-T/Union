@@ -7,6 +7,9 @@ import Events from '../Containers/event_calender/EventCalender';
 // import Club from '../Containers/clubs/club';
 import ClubNavigation from '../Navigation/clubNavigation';
 import ProfileNavigation from '../Navigation/profileNavigation';
+import ActionBarNavigation from '../Navigation/ActionbarNavigation';
+
+
 const Tab = createBottomTabNavigator();
 
 export default AppNavigation = () => {
@@ -16,8 +19,8 @@ export default AppNavigation = () => {
             headerShown : false
         }}>
         <Tab.Screen 
-        name="Home"
-        component={HomeStudent}
+        name="HomeScreen"
+        component={ActionBarNavigation}
         options={{
             tabBarIcon:()=>(
                 <MaterialIcons name="home" size={30}/>

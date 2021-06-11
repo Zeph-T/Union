@@ -20,7 +20,16 @@ export default StyleSheet.create({
         marginLeft : Metrics.marginSmall
     },
     screenStyle:{
-        paddingVertical : Metrics.screenHeight/40,
+        paddingVertical : Metrics.paddingMedium,
         backgroundColor : '#faf9f9'
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
+    },
+    actionButton : {
+        flexDirection : 'row',
+        justifyContent : 'flex-end'
     }
 })
