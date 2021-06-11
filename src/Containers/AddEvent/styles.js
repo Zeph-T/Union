@@ -9,22 +9,43 @@ export default StyleSheet.create({
         marginHorizontal:Metrics.marginSmall
     },
     button:{
+        width : Metrics.screenWidth*0.25,
         backgroundColor : 'white',
-        shadowColor : 'black',
-        shadowOpacity : 10,
-        height : Metrics.screenHeight/10
     },
     buttonContainer:{
         justifyContent : 'space-between',
         flexDirection : 'row',
-        marginTop : Metrics.marginSmall
+        marginTop : Metrics.marginSmall,
+        borderWidth  :4,
+        borderColor : 'black'
     },
     dateandTime : {
         backgroundColor : 'white',
-        width : Metrics.screenWidth * 0.65
+        width : Metrics.screenWidth * 0.670
     },
     eventContent: {
-        marginTop : Metrics.marginSmall,
-        backgroundColor : 'white'
+        marginVertical : Metrics.marginSmall,
+        backgroundColor : 'white',
+        borderWidth  :4,
+        borderColor : 'black'
+    },
+    socialMedia : {
+        backgroundColor : 'white',
+        marginVertical : Metrics.marginSmall
+    },
+    textinput : {
+        backgroundColor : 'white',
+        borderWidth  :4,
+        borderColor : 'black'
+    },
+    title:{
+        textAlign : 'center',
+        padding : Metrics.paddingMedium,
+        fontSize : Metrics.h2
+    },
+    submitButton : {
+        width : Metrics.screenWidth/2,
+        marginVertical : Metrics.marginSmall,
+
     }
 })
