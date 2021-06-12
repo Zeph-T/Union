@@ -6,22 +6,20 @@ import Announcements from '../../Components/Anouncement/announcement';
 import Notifications from '../../Components/Notification/Notification';
 import ActionButton from '../../Components/ActionButton/ActionButton';
 
-const HomeStudent = props => {
+const HomeAdmin = props => {
     return (
-        <ScrollView style={styleCard.screenStyle}>
+        <ScrollView contentContainerStyle={styleCard.screenStyle}>
             <View>
                 <Title style={styleCard.heading}>
-                    Hey There!👋
+                   Uthaan!
                 </Title>
-                <Paragraph style={styleCard.subheading}>
-                    It has been a while!
-                </Paragraph>
             </View>
-            <Notifications title="News" />
-            <Announcements title='Latest Events' />
+             <Notifications title="Latest Notifications"/> 
+            <Announcements  title="Latest Events" />
+            <ActionButton {...props}/>
         </ScrollView>
     )
 }
 
 
-export default HomeStudent;
+export default HomeAdmin;

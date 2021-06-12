@@ -69,11 +69,11 @@ const AddEvent = () => {
         setVisible(false);
     }
 
-    const removeLink = (index) => {
+    const removeLink = (sIndex) => {
         let stateSnapShot = JSON.parse(JSON.stringify(socialMediaURLs));
         let newState = [];
-        stateSnapShot.forEach((data)=>{
-            if(data.socialMedia !== index.socialMedia){
+        stateSnapShot.forEach((data,index)=>{
+            if(sIndex !== index){
                 newState.push(data);
             }
         })
@@ -83,7 +83,8 @@ const AddEvent = () => {
     return (
         <ScrollView contentContainerStyle={styleCard.screen}>
             <Title style={styleCard.title}>Create an Event 🎃</Title>
-            <TextInput
+            <TextInput 
+                mode="outlined"
                 label="Event Name"
                 value={eventName}
                 style={styleCard.textinput}
@@ -111,7 +112,7 @@ const AddEvent = () => {
                     onChange={onChange}
                 />
             )}
-            <TextInput style={styleCard.eventContent} label="Event Content" multiline={true} numberOfLines={5} />
+            <TextInput mode="outlined" style={styleCard.eventContent} label="Event Content" multiline={true} numberOfLines={5} />
             <Button title="Add Social Media Link" onPress={showDialog} />
             <Portal>
                 <Dialog visible={visible} onDismiss={hideDialog}>
@@ -149,7 +150,7 @@ const AddEvent = () => {
             {socialMediaURLs.map((value, index) => {
                 return (
                     <View>
-                        <TextInput  style={styleCard.socialMedia} label={value.socialMedia} value={value.URL} right={<TextInput.Icon name="delete" onPress={()=>removeLink(value)} />} />
+                        <TextInput key={index} mode="outlined" style={styleCard.socialMedia} label={value.socialMedia} value={value.URL} disabled right={<TextInput.Icon name="delete" onPress={()=>removeLink(index)} />} />
                     </View>
                 )
             })}

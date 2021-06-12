@@ -1,15 +1,16 @@
 import {StyleSheet}  from 'react-native'
+import Colors from '../../Themes/Colors';
+import Metrics from '../../Themes/Metrics';
 
-import Metrics from '../../Themes/Metrics'
+
 export default StyleSheet.create({
     heading:{
         fontFamily : 'serif',
         fontSize : Metrics.h1,
         fontWeight: "bold",
-        paddingTop : Metrics.paddingSmall,
+        paddingTop : Metrics.paddingMedium,
         marginLeft : Metrics.marginSmall,
-        color : 'black',
-        marginTop : Metrics.marginLarge+Metrics.marginMedium
+        color : 'red'
     },
     subheading : {
         fontWeight:"bold",
@@ -19,6 +20,16 @@ export default StyleSheet.create({
         marginLeft : Metrics.marginSmall
     },
     screenStyle:{
-        height : Metrics.screenHeight
+        paddingVertical : Metrics.paddingSmall,
+        backgroundColor : '#faf9f9'
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
+    },
+    actionButton : {
+        flexDirection : 'row',
+        justifyContent : 'flex-end'
     }
 })
