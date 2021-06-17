@@ -16,7 +16,8 @@ let notificationSchema = mongoose.Schema({
     },
     Batches : [{
         type:'String'
-    }]
+    }],
+    PostedOn  : {type:Date,default : Date.now}
 })
 
 export default mongoose.model('Notification',notificationSchema);

@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import configDB from 'src/config/database';
 import api from './src/routes/api';
+import auth from './src/routes/auth';
 
 mongoose.connect(configDB.url,{ useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
     console.log('DB connected!');
@@ -12,6 +13,7 @@ mongoose.connect(configDB.url,{ useNewUrlParser: true, useUnifiedTopology: true}
 const port = process.env.PORT || 8000;
 const app = express();
 
+app.use('/auth',auth);
 app.use('/api',api);
 app.listen(port,()=>{
     console.log(`server listening on PORT ${port}`);
