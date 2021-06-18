@@ -32,7 +32,6 @@ const RootContainer = () => {
                             component={AuthContainer}
                         />
                 }
-                <RootStack.Screen name="Auth" component={AuthContainer} />
             </RootStack.Navigator>
         </NavigationContainer>
     )
