@@ -16,6 +16,8 @@ export function getMyNotifications(req, res) {
 
 }
 
+
+
 export function AddNotification(req, res) {
     try {
         let newNotif = new Notification;
