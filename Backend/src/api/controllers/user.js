@@ -38,7 +38,7 @@ export function login(req,res){
                     res.status(404);
                     return res.send({"message":"No User with the Email!"});
                 }else{
-                    if(oUser.validPassword(req.body.Password)){
+                    // if(oUser.validPassword(req.body.Password)){
                         const today = new Date();
                         const exp = new Date(today);
                         exp.setDate(today.getDate() + 1000000);
@@ -49,10 +49,10 @@ export function login(req,res){
                           JWTSECRET
                         );
                         return token;
-                    }else{
-                        res.status(401);
-                        return res.send({"message":'Password Incorrect'});
-                    }
+                    // }else{
+                    //     res.status(401);
+                    //     return res.send({"message":'Password Incorrect'});
+                    // }
                 }
             }).catch(err=>{
                 res.status(400);

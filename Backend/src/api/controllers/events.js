@@ -16,20 +16,20 @@ export function getAllEvents(req,res){
     }
 }
 
-export function getEventByClub(req,res){
-    try{
-        Event.find({Organiser : mongoose.Types.ObjectId(req.body.Organiser)}).populate({path:'Organiser',select:{Name:1,_id:0}}).then(oEvents=>{
-            res.status(200);
-            return res.send(oEvents);
-        }).catch(err=>{
-            res.status(400);
-            return res.send({'message':err.stack});
-        })
-    }catch(err){
-        res.status(400);
-        return res.send({'message':'Error getting Data'});
-    }ganiser
-}
+// export function getEventByClub(req,res){
+//     try{
+//         Event.find({_id: mongoose.Types.ObjectId(req.params.id)}).populate({path:'Organiser',select:{Name:1,_id:0}}).then(oEvents=>{
+//             res.status(200);
+//             return res.send(oEvents);
+//         }).catch(err=>{
+//             res.status(400);
+//             return res.send({'message':err.stack});
+//         })
+//     }catch(err){
+//         res.status(400);
+//         return res.send({'message':'Error getting Data'});
+//     }ganiser
+// }
 
 
 export function AddEvent(req,res){
