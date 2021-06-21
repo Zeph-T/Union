@@ -5,7 +5,7 @@ import Colors from '../../Themes/Colors';
 export default StyleSheet.create({
     screen:{
         justifyContent : 'center',
-        marginTop : Metrics.screenHeight/4,
+        marginTop : Metrics.screenHeight/5,
         marginHorizontal : Metrics.marginSmall
     },
     textInput:{
@@ -25,5 +25,16 @@ export default StyleSheet.create({
     },
     buttonLabel :{
         color:'white'
-    }
+    },
+    extrabuttons:{
+        flexDirection : 'row',
+        justifyContent : 'space-around'
+    },
+    logo:{
+        marginBottom:Metrics.marginSmall
+    },
+    texts : {
+        marginVertical : Metrics.marginMedium,
+        marginHorizontal : Metrics.marginMedium,
+    },
 });

@@ -8,28 +8,29 @@ module.exports = [{
     id: '3',
     name: '2020 BCS'
 }, {
-    id: 'nahs75a5sg',
+    id: '4',
     name: '2017 IMT'
 }, {
-    id: '667atsas',
+    id: '5',
     name: '2018 IMT'
 }, {
-    id: 'hsyasajs',
+    id: '6',
     name: '2019 IMT'
 }, {
-    id: 'djsjudksjd',
+    id: '7',
     name: '2020 IMT'
 }, {
-    id: 'sdhyaysdj',
+    id: '8',
     name: '2017 IMG'
 }, {
-    id: 'suudydjsjd',
+    id: '9',
     name: '2018 IMG'
 }, {
-    id: 'suudydjsjf',
+    id: '10',
     name: '2019 IMG'
 }, {
-    id: 'suudydjsjj',
+    id: '11',
     name: '2020 IMG'
 }
 ];
+

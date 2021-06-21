@@ -5,7 +5,7 @@ import Metrics from '../../Themes/Metrics'
 export default StyleSheet.create({
     screen:{
         minHeight : Metrics.screenHeight,
-        alignItems : 'center',
+        // alignItems : 'center',
         justifyContent:'center',
         marginHorizontal:Metrics.marginSmall
     },
@@ -15,12 +15,19 @@ export default StyleSheet.create({
     },
     extrabuttons : {
         flexDirection :'row',
-        justifyContent : 'flex-end'
+        justifyContent : 'space-around',
+        padding :Metrics.paddingSmall
     },
     texts : {
         marginHorizontal : Metrics.marginMedium,
     },
-    logoimage : {
+    textInput : {
         marginVertical : Metrics.marginSmall
+    },
+    logoimage : {
+        paddingVertical : Metrics.paddingSmall
+    },
+    button:{
+        backgroundColor : Colors.backgroundColor
     }
 })
