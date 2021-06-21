@@ -15,6 +15,9 @@ const Login = (props) => {
         setPassword("");
         props.navigation.navigate('App');
     }
+    let onPressSignUp = () => {
+      props.navigation.navigate('Signup');
+    }
 
     return(
         <ScrollView contentContainerStyle={styles.screen}>
@@ -33,6 +36,9 @@ const Login = (props) => {
             />
           <Button full onPress={onsubmit} color={Colors.logoColor}>
             <Text style={{color:'white'}}>LOGIN</Text>
+          </Button>
+          <Button full onPress={onPressSignUp} color={Colors.logoColor}>
+            <Text style={{color:'white'}}>SignUp</Text>
           </Button>
           </ScrollView>
     )
