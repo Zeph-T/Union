@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { TextInput, Button, Title } from 'react-native-paper';
+import { TextInput, Button, Title ,Snackbar} from 'react-native-paper';
 import { ScrollView, View, Image, Text, TouchableOpacity } from 'react-native';
-// import batches from '../../Utils/batches';
+import {useSelector,useDispatch} from 'react-redux'
+import SnackBar from '../SnackBar/snackBar';
 import Styles from './styles'
 import DropDown from 'react-native-paper-dropdown';
 import Images from '../../Themes/Images';
 import metrics from '../../Themes/Metrics';
+import { signin } from '../../Redux/Thunks/auth';
 
 const batches = [{
     label: '2018 BCS',
@@ -45,6 +47,7 @@ const batches = [{
 
 
 const SignUp = (props) => {
+    const dispatch = useDispatch();
     const [name, setname] = React.useState("");
     const [email, setemail] = React.useState("");
     const [Password, setPassword] = React.useState("");
@@ -52,9 +55,34 @@ const SignUp = (props) => {
     const [RollNo, setRollNo] = React.useState("");
     const [rnPassword, setrnPassword] = React.useState(false);
     const [showDropDown, setShowDropDown] = React.useState(false);
+    const [loading,setLoading] = React.useState(false);
+    const [visible,setVisible] = React.useState(false);
+    const [message,setMessage] = React.useState("");
     const redirectToLogin = () => {
         props.navigation.navigate('Login')
     }
+
+
+    const handleSubmit = async() => {
+        if(name==""||email==""||Password==""||Batch==""){
+            setMessage("Fill up the details");
+            setVisible(true);
+            setTimeout(()=>{
+                setVisible(false);
+            },3000)
+            return;
+        }
+        try{
+            let response = await dispatch(signin(name,email,Password,Batch,RollNo));
+            setLoading(false);
+        }catch(err){
+            setLoading(false);
+            Snackbar('Error Occured!')
+        }
+
+    }
+
+
     return (
         <ScrollView>
             <View style={Styles.screen} >
@@ -64,13 +92,13 @@ const SignUp = (props) => {
                     label="Name"
                     value={name}
                     style={Styles.textInput}
-                    onChange={text => setname(text)}
+                    onChangeText={text => setname(text)}
                 />
                 <TextInput
                     mode="outlined"
                     style={Styles.textInput}
                     label="Email"
-                    onChange={(text) => setemail(text)}
+                    onChangeText={(text) => setemail(text)}
                 />
                 <TextInput
                     mode="outlined"
@@ -78,8 +106,8 @@ const SignUp = (props) => {
                     style={Styles.textInput}
                     label="Repeat New Password"
                     value={Password}
-                    onChange={(text) => setPassword(text)}
-                    right={<TextInput.Icon name="eye" onPress={() => setrnPassword(!rnPassword)} />}
+                    onChangeText={(text) => setPassword(text)}
+                    // right={<TextInput.Icon name="eye" onPress={() => setrnPassword(!rnPassword)} />}
                 />
                 <View style={Styles.textInput}>
                     <DropDown
@@ -102,9 +130,9 @@ const SignUp = (props) => {
                     style={Styles.textInput}
                     label="Roll Number"
                     value={RollNo}
-                    onChange={(text) => setRollNo(text)}
+                    onChangeText={(text) => setRollNo(text)}
                 />
-                <Button labelStyle={Styles.buttonLabel} style={Styles.submit}>SignIN</Button>
+                <Button labelStyle={Styles.buttonLabel} onPress={handleSubmit} loading={loading} style={Styles.submit}>SignIN</Button>
                 <View style={Styles.extrabuttons}>
                     <TouchableOpacity onPress={() => props.navigation.navigate('AdminLogin')} style={Styles.texts}>
                         <Text style={{ color: 'blue', fontSize: metrics.h3 }}>Admin Login</Text>
@@ -114,6 +142,7 @@ const SignUp = (props) => {
                     </TouchableOpacity>
                 </View>
             </View>
+            <SnackBar message={message} visible={visible} />
         </ScrollView>
 
     );
