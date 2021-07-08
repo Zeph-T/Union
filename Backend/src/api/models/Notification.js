@@ -12,7 +12,7 @@ let notificationSchema = mongoose.Schema({
     },
     AllMembers : {
         type:Boolean,
-        default:True
+        default:true
     },
     Batches : [{
         type:'String'

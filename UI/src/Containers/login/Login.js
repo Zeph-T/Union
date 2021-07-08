@@ -2,19 +2,22 @@ import React , {useState,useEffect} from 'react';
 import {ScrollView,Text,Image ,View,TouchableOpacity} from 'react-native';
 import {Button, Col} from 'native-base'
 import CustomTextInput from '../../Components/TextInput/TextInput';
+import { useSelector,useDispatch } from 'react-redux';
 import styles from './styles';
 import Colors from '../../Themes/Colors';
 import Images from '../../Themes/Images';
 import metrics from '../../Themes/Metrics';
+import {login} from '../../Redux/Thunks/auth'
+
+
 const Login = (props) => {
-    const [rollNo,setRolNo] = useState("");
+    const dispatch = useDispatch();
+    const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    let onsubmit = ()=>{
-        console.log(rollNo);
+    let onsubmit = async()=>{
         console.log(password);
-        setRolNo("");
-        setPassword("");
-        props.navigation.navigate('App');
+        await(dispatch(login(email,password)))
+        // props.navigation.navigate('App');
     }
     let onPressSignUp = () => {
       props.navigation.navigate('Signup');
@@ -25,9 +28,8 @@ const Login = (props) => {
             <Image source={Images.logo} />
             <CustomTextInput 
             labelName='Enter Your Email'
-            value={rollNo}
-            valueChange = {setRolNo}
-            placeholder={'20XX-XXX-XXX'}
+            value={email}
+            valueChange = {setEmail}
             />
             <CustomTextInput
             labelName="Enter Your Pasword"

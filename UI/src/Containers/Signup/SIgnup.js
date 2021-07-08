@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { TextInput, Button, Title ,Snackbar} from 'react-native-paper';
+import { TextInput, Button, Title, DarkTheme} from 'react-native-paper';
 import { ScrollView, View, Image, Text, TouchableOpacity } from 'react-native';
 import {useSelector,useDispatch} from 'react-redux'
-import SnackBar from '../SnackBar/snackBar';
 import Styles from './styles'
 import DropDown from 'react-native-paper-dropdown';
 import Images from '../../Themes/Images';
 import metrics from '../../Themes/Metrics';
-import { signin } from '../../Redux/Thunks/auth';
-
+import axios from 'axios';
+import { SIGNUP_URL } from '../../Utils/constants';
 const batches = [{
     label: '2018 BCS',
     value: '2018 BCS'
@@ -56,8 +55,6 @@ const SignUp = (props) => {
     const [rnPassword, setrnPassword] = React.useState(false);
     const [showDropDown, setShowDropDown] = React.useState(false);
     const [loading,setLoading] = React.useState(false);
-    const [visible,setVisible] = React.useState(false);
-    const [message,setMessage] = React.useState("");
     const redirectToLogin = () => {
         props.navigation.navigate('Login')
     }
@@ -65,19 +62,34 @@ const SignUp = (props) => {
 
     const handleSubmit = async() => {
         if(name==""||email==""||Password==""||Batch==""){
-            setMessage("Fill up the details");
-            setVisible(true);
-            setTimeout(()=>{
-                setVisible(false);
-            },3000)
+            alert('Fill All the details!')
             return;
         }
         try{
-            let response = await dispatch(signin(name,email,Password,Batch,RollNo));
+            setLoading(true);console.log('hi')
+
+            const data = {"Name": name,"Email":email,"Password":Password,"Batch" :  Batch,"RollNo" : RollNo};
+            fetch(SIGNUP_URL,{
+                method:'POST',
+                headers: {
+                 'Content-Type': 'application/json',
+                 'Accept' : 'application/json'
+                },
+                body : JSON.stringify(data)
+            }).then(res=>res.json()).then((res)=>{
+                alert(res.message);
+                setTimeout(()=>{
+
+                },1000);
+                props.navigation.navigate('Login')
+            }).catch(err=>{
+                console.log(err);
+                alert('Error Occured!')
+            })
             setLoading(false);
         }catch(err){
             setLoading(false);
-            Snackbar('Error Occured!')
+            console.log(err);
         }
 
     }
@@ -104,7 +116,7 @@ const SignUp = (props) => {
                     mode="outlined"
                     secureTextEntry={rnPassword}
                     style={Styles.textInput}
-                    label="Repeat New Password"
+                    label="Password"
                     value={Password}
                     onChangeText={(text) => setPassword(text)}
                     // right={<TextInput.Icon name="eye" onPress={() => setrnPassword(!rnPassword)} />}
@@ -142,7 +154,6 @@ const SignUp = (props) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <SnackBar message={message} visible={visible} />
         </ScrollView>
 
     );

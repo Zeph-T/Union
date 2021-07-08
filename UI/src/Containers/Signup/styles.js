@@ -21,7 +21,8 @@ export default StyleSheet.create({
     },
     submit:{
         backgroundColor : Colors.logoColor,
-        color:'white'
+        color:'white',
+        padding : Metrics.paddingExtraSmall/2
     },
     buttonLabel :{
         color:'white'

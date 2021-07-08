@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 
 let facultySchema = mongoose.Schema({
-    Name:{Type:String,required:true},
-    ImageURL : {Type:String},
-    Designation : {Type:String}
+    Name:{type:String,required:true},
+    ImageURL : {type:String},
+    Designation : {type:String}
 })
 
 

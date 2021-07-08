@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {persistStore, persistCombineReducers} from 'redux-persist';
+// import {persistStore, persistCombineReducers} from 'redux-persist';
 import rootReducer from './Reducers/root';
 // const config = {
 //     key:'root',

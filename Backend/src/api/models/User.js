@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
-let userSchema = mong0oose.Schema({
+let userSchema = mongoose.Schema({
     Name:{
         type:String,
         required : true
@@ -10,7 +10,7 @@ let userSchema = mong0oose.Schema({
         type:Number,
         required:true
     },
-    Password :{type:String},
+    Password :{type:String,required  :true},
     Email  : {type:String,lowercase : true},
     Batch  :{ type:String,required:true},
 })

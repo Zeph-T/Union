@@ -8,20 +8,16 @@ export const login = (email,password) => async(dispatch) =>{
         dispatch({
             type:ActionTypes.LOGIN,
             payload : data
+        }),
+        dispatch({
+            type:ActionTypes.USER_DETAILS_SUCCESS,
+            payload : data
         })
-    }catch(err){
+}catch(err){
         throw err;
     }
 }
 
-export const signin = async(name,email,password,batch,rollNo)=>{
-    try{
-        const data = await authService.signin(name,email,password,batch,rollNo);
-        return data;
-    }catch(err){
-        return err.stack
-    }
-}
 
 export const logout = () => (dispatch) => {
     try{
