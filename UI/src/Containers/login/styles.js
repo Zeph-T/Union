@@ -5,9 +5,10 @@ import Metrics from '../../Themes/Metrics'
 export default StyleSheet.create({
     screen:{
         minHeight : Metrics.screenHeight,
-        alignItems : 'center',
-        justifyContent:'center',
-        marginHorizontal:Metrics.marginSmall
+        // alignItems : 'center',
+        // marginTop : Metrics.screenHeight/3,
+        marginHorizontal : Metrics.marginSmall,
+        justifyContent : 'center'
     },
     logo:{
         width:Metrics.screenWidth/1.5,
@@ -22,5 +23,11 @@ export default StyleSheet.create({
     },
     logoimage : {
         marginVertical : Metrics.marginSmall
-    }
+    },
+    textInput:{
+        marginBottom :Metrics.marginSmall,
+        backgroundColor : 'white',
+        shadowOpacity :10,
+        shadowColor : 'black'
+    },
 })

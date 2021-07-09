@@ -6,6 +6,7 @@ const auth = (state={isLoggedIn : false,token:null,isAdmin : false},action)=>{
           return {
             ...state,
             isLoggedIn: true,
+            isAdmin : action.payload.myEvents ? true : false,
             token: action.payload.token
           };
         case LOGOUT:

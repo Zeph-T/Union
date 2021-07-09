@@ -1,6 +1,7 @@
 import React , {useState,useEffect} from 'react';
 import {ScrollView,Text,Image ,View,TouchableOpacity} from 'react-native';
-import {Button, Col} from 'native-base'
+import { TextInput,Button } from 'react-native-paper';
+// import {Button, Col} from 'native-base'
 import CustomTextInput from '../../Components/TextInput/TextInput';
 import { useSelector,useDispatch } from 'react-redux';
 import styles from './styles';
@@ -13,10 +14,13 @@ import {login} from '../../Redux/Thunks/auth'
 const Login = (props) => {
     const dispatch = useDispatch();
     const [email,setEmail] = useState("");
+    const [isLoading,setisLoading] = useState(false);
     const [password,setPassword] = useState("");
     let onsubmit = async()=>{
+      setisLoading(true);
         console.log(password);
         await(dispatch(login(email,password)))
+        setisLoading(false);
         // props.navigation.navigate('App');
     }
     let onPressSignUp = () => {
@@ -25,20 +29,26 @@ const Login = (props) => {
 
     return(
         <ScrollView contentContainerStyle={styles.screen}>
-            <Image source={Images.logo} />
-            <CustomTextInput 
-            labelName='Enter Your Email'
+            <Image  style = {styles.logoimage}source={Images.logo} />
+            <TextInput
+            mode="outlined" 
+            label="Email"
+            placeholder = "Enter your Email"
             value={email}
-            valueChange = {setEmail}
+            style={styles.textInput}
+            onChangeText = {(text)=>setEmail(text)}
             />
-            <CustomTextInput
-            labelName="Enter Your Pasword"
+            <TextInput
+            label="Pasword"
             value={password}
-            valueChange = {setPassword}
+            mode="outlined" 
+            style={styles.textInput}
+            onChangeText = {(text)=>setPassword(text)}
             placeholder = {'Enter your Password!'}
             />
-          <Button full onPress={onsubmit} color={Colors.logoColor}>
-            <Text style={{color:'white'}}>LOGIN</Text>
+          <Button mode="contained" loading={isLoading} full onPress={onsubmit}>
+            {/* <Text style={{color:'white'}}>LOGIN</Text> */}
+            Login
           </Button>
             <Text style={{color:'white'}}>LOGIN</Text>
             <View style={styles.extrabuttons}>

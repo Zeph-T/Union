@@ -18,6 +18,22 @@ export const login = (email,password) => async(dispatch) =>{
     }
 }
 
+export const adminLogin = (ClubId,Password) => async(dispatch) => {
+    try{
+        const data = await authService.adminLogin(ClubId,Password);
+        dispatch({
+            type:ActionTypes.LOGIN,
+            payload : data
+        })
+        dispatch({
+            type:ActionTypes.USER_DETAILS_SUCCESS,
+            payload : data
+        })
+    }catch(err){
+        throw err;
+    }
+}
+
 
 export const logout = () => (dispatch) => {
     try{

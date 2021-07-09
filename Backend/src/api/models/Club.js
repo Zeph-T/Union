@@ -3,13 +3,17 @@ import mongoose from 'mongoose';
 
 let clubSchema = mongoose.Schema({
     Name:{
-        type:'String',
+        type:String,
         required:true
     },
     Members :[{
         type:mongoose.Types.ObjectId,
         ref:'User'
     }],
+    ClubId : {
+        type:String,
+        required: true
+    },
     Events : [{
         type:mongoose.Types.ObjectId,
         ref:'Event'

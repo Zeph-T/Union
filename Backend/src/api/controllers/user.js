@@ -11,7 +11,7 @@ export function SignUp(req,res){
             newUser.Password = req.body.Password;
             newUser.Name = req.body.Name;
             newUser.Batch = req.body.Batch;
-            User.findOne({email:req.body.email}).then(oUser=>{
+            User.findOne({Email:req.body.Email}).then(oUser=>{
                 if(oUser === null){
                     newUser.save((err,user)=>{
                         if(err){
@@ -67,3 +67,5 @@ export function login(req,res){
         return res.send({"message":'Error Retrieving Details,Try Again Later!'});
     }
 }
+
+

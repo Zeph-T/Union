@@ -7,6 +7,7 @@ import Notifications from '../../Components/Notification/Notification';
 import ActionButton from '../../Components/ActionButton/ActionButton';
 
 const HomeAdmin = props => {
+    
     return (
         <ScrollView contentContainerStyle={styleCard.screenStyle}>
             <View>
