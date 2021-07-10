@@ -19,7 +19,10 @@ const Login = (props) => {
     let onsubmit = async()=>{
       setisLoading(true);
         console.log(password);
-        await(dispatch(login(email,password)))
+        let response = await(dispatch(login(email,password)))
+        if(response){
+          alert(response);
+        }
         setisLoading(false);
         // props.navigation.navigate('App');
     }

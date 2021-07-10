@@ -22,6 +22,9 @@ export default StyleSheet.create({
     announcementScrollView:{
         height : Metrics.screenHeight/3,
     },
+    loadingContainer : {
+        marginTop : Metrics.screenHeight/6
+    },
     announcementHeading : {
         fontSize  : 30,
         fontWeight : '200',
@@ -32,7 +35,7 @@ export default StyleSheet.create({
         marginLeft : Metrics.marginSmall
     },
     announcementContainer:{
-        marginVertical : Metrics.marginSmall,
+        // marginVertical : Metrics.marginSmall,
     },
     HeadingStyle:{
         flexDirection:'row',

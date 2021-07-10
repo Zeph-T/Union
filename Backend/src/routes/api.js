@@ -9,7 +9,7 @@ module.exports = (router)=>{
         res.json({ status: 'Up and Running!' });
       });
     router.post('/addNotifcation',notifApi.AddNotification);
-    router.get('/getMyNotifications',notifApi.getMyNotifications);
+    router.get('/getMyNotifications/:batch',notifApi.getMyNotifications);
     router.get('/getEvents',eventApi.getAllEvents);
     router.post('/addEvent',eventApi.AddEvent);
     router.get('/getClubData',clubApi.getClubData);

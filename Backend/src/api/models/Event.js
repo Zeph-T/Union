@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 let slotSchema = mongoose.Schema({
-    startTime:Date,
-    endTime : Date
+    startTime:String,
+    endTime : String
 })
 
 let eventSchema = mongoose.Schema({
@@ -10,15 +10,15 @@ let eventSchema = mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'Club'
     },
-    Date:{
-        type:Date
+    date:{
+        type:String
     },
-    Slot : slotSchema,
-    Title : {
+    slot : slotSchema,
+    name : {
         type:String,
         required: true
     },
-    Body : {
+    body : {
         type:String
     },
     Links :[{

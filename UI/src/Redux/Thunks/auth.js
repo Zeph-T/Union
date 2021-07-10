@@ -5,12 +5,15 @@ import * as authService from '../../Services/auth';
 export const login = (email,password) => async(dispatch) =>{
     try{
         const data = await authService.login(email,password);
-        dispatch({
-            type:ActionTypes.LOGIN,
-            payload : data
-        }),
+        if(data.message ===' No User with the Email!'){
+            return  data.message;
+        }
         dispatch({
             type:ActionTypes.USER_DETAILS_SUCCESS,
+            payload : data
+        })
+        dispatch({
+            type:ActionTypes.LOGIN,
             payload : data
         })
 }catch(err){

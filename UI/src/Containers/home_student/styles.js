@@ -20,7 +20,7 @@ export default StyleSheet.create({
         marginLeft : Metrics.marginSmall
     },
     screenStyle:{
-        paddingVertical : Metrics.paddingMedium,
+        paddingHorizontal : Metrics.paddingExtraSmall/2,
         backgroundColor : '#faf9f9'
     },
     actionButtonIcon: {

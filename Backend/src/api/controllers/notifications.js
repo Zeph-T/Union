@@ -2,7 +2,7 @@ import Notification from '../models/Notification';
 
 export function getMyNotifications(req, res) {
     try {
-        Notifications.find({ '$or': [{ Batches: { $in: req.body.batch } }, { AllMembers: true }] }).sort({ _id: -1 }).limit(5).then(oNotif => {
+        Notification.find({ '$or': [{ Batches:req.params.batch }, { AllMembers: true }] }).sort({ _id: -1 }).limit(5).then(oNotif => {
             res.status(200);
             return res.send(oNotif);
         }).catch(err => {

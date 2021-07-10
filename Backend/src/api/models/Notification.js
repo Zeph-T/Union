@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
 let notificationSchema = mongoose.Schema({
-    PostedBy : {
+    postedby : {
         type:String
     },
-    Title:{
+    title:{
         type:String
     },
-    Body:{
+    info:{
         type:String
     },
     AllMembers : {
@@ -17,7 +17,7 @@ let notificationSchema = mongoose.Schema({
     Batches : [{
         type:'String'
     }],
-    PostedOn  : {type:Date,default : Date.now}
+    date  : {type:String}
 })
 
 export default mongoose.model('Notification',notificationSchema);

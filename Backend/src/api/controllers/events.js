@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import Club from '../models/Club';
 export function getAllEvents(req,res){
     try{
-        Event.find({}).sort({_id:-1}).limit(5).populate({path:'Organiser',select:{name:1,_id:0}}).then(oEvents=>{
+        Event.find({}).sort({_id:-1}).limit(5).then(oEvents=>{
             res.status(200);
             return res.send(oEvents);
         }).catch(err=>{

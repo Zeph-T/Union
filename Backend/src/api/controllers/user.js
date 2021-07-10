@@ -55,7 +55,7 @@ export function login(req,res){
                         },
                           JWTSECRET
                         );
-                        return res.status(200).send({"token" : token,"email":oUser.Email, "name":oUser.Name, "_id" : oUser._id.toString()});
+                        return res.status(200).send({"token" : token,"email":oUser.Email, "name":oUser.Name, "_id" : oUser._id.toString(),"batch" : oUser.Batch});
                 }
             }).catch(err=>{
                 res.status(400);

@@ -8,7 +8,6 @@ import Notifications from '../../Components/Notification/Notification';
 
 const HomeStudent = props => {
     const {name} = useSelector((state)=>state.user);
-    // name = name.split(" ")[0];
     return (
         <ScrollView style={styleCard.screenStyle}>
             <View>
