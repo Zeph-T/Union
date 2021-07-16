@@ -15,6 +15,7 @@ const Announcements = props => {
     const [body,setBody] = useState("");
     const [data,setData ] = useState([]);
     useEffect(()=>{
+        const ac = new AbortController();
         setLoading(true);
         fetch(EVENTS_URL,{
             method:'GET',
@@ -24,11 +25,12 @@ const Announcements = props => {
             }
         }).then((response) => response.json())
         .then(oEvents=>{
+            ac.abort();
             console.log('Hi');
             // console.log(oEvents)
             setData(oEvents);
             setLoading(false);
-            console.log("Getting data from backend!");
+            console.log("Getting data from backend");
             // console.log(data);
         }).catch(err=>{
             console.log(err);

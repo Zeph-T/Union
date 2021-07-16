@@ -9,9 +9,9 @@ import metrics from '../../Themes/Metrics';
 const EventCalendar = () => {
   const [DialogVisible, setDialogVisible] = useState(false);
   const markedDates = {
-    "2021-05-16": { selected: true, marked: true, selectedColor: 'blue', Title: 'Pictionary 1', Description: 'General Description', club: 'Uthaan' },
-    "2021-05-17": { marked: true, Title: 'Pictionary 2', Description: 'General Description', club: 'Uthaan', selectedColor: 'green' },
-    "2021-05-18": { marked: true, Title: 'Pictionary 3', Description: 'General Description', club: 'Uthaan', selectedColor: 'red' },
+    "2021-05-16": {  marked: true, selectedColor: 'blue', Title: 'Pictionary 1', Description: 'General Description'},
+    "2021-05-17": { marked: true, Title: 'Pictionary 2', Description: 'General Description', club: 'Uthaan'},
+    "2021-05-18": { marked: true, Title: 'Pictionary 3', Description: 'General Description', club: 'Uthaan' }
   };
   const [selectedTitle, setSelectedTitle] = useState("");
   const [selectedDescription, setSelectedDescription] = useState("");
@@ -34,14 +34,6 @@ const EventCalendar = () => {
         <Dialog visible={DialogVisible} onDismiss={HandleDialogClose}>
           <Dialog.ScrollArea>
             <ScrollView contentContainerStyle={{ height: metrics.screenHeight / 1.5, alignItems: 'center', justifyContent: 'center' }}>
-              <Dialog.Title>
-                {selectedTitle}
-              </Dialog.Title>
-              <Dialog.Content>
-                <Paragraph>
-                  {selectedDescription}
-                </Paragraph>
-              </Dialog.Content>
               <Dialog.Title>
                 {selectedTitle}
               </Dialog.Title>

@@ -6,3 +6,4 @@ export const SIGNUP_URL  = BASE_URL  +'/auth/signup';
 export const NOTIFICATIONS_URL = BASE_URL + '/api/getMyNotifications';
 export const EVENTS_URL = BASE_URL + '/api/getEvents';
 export const CLUB_DATA = BASE_URL  + '/api/getClubData';
+export const ADD_EVENT = BASE_URL + '/api/addEvent'

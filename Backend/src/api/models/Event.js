@@ -1,19 +1,15 @@
 import mongoose from 'mongoose';
 
-let slotSchema = mongoose.Schema({
-    startTime:String,
-    endTime : String
-})
+
 
 let eventSchema = mongoose.Schema({
     Organiser : {
-        type:mongoose.Types.ObjectId,
-        ref:'Club'
+        type:String
     },
     date:{
         type:String
     },
-    slot : slotSchema,
+    time : {type:String},
     name : {
         type:String,
         required: true
@@ -21,8 +17,9 @@ let eventSchema = mongoose.Schema({
     body : {
         type:String
     },
-    Links :[{
-        type:String
+    links :[{
+        media : String,
+        url : String
     }]
 })
 

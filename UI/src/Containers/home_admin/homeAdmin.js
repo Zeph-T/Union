@@ -12,7 +12,7 @@ const HomeAdmin = props => {
         <ScrollView contentContainerStyle={styleCard.screenStyle}>
             <View>
                 <Title style={styleCard.heading}>
-                   Uthaan!
+                   Uthaan
                 </Title>
             </View>
              <Notifications title="Latest Notifications"/> 

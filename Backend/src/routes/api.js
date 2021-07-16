@@ -8,7 +8,7 @@ module.exports = (router)=>{
         res.status(200);
         res.json({ status: 'Up and Running!' });
       });
-    router.post('/addNotifcation',notifApi.AddNotification);
+    router.post('/addNotification',notifApi.AddNotification);
     router.get('/getMyNotifications/:batch',notifApi.getMyNotifications);
     router.get('/getEvents',eventApi.getAllEvents);
     router.post('/addEvent',eventApi.AddEvent);
