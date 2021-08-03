@@ -1,49 +1,104 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar } from 'react-native-calendars';
 import { View, ScrollView } from 'react-native';
-import { Paragraph, Dialog, Portal } from 'react-native-paper';
+import { Paragraph, Dialog, Portal,ActivityIndicator,Colors } from 'react-native-paper';
 import metrics from '../../Themes/Metrics';
+import { EVENT_CALENDER_EVENTS_URL } from '../../Utils/constants';
 
 
 
 const EventCalendar = () => {
   const [DialogVisible, setDialogVisible] = useState(false);
+  const [events,setEvents] = useState([]);
+  const [data , setData] = useState([]);
   const markedDates = {
-    "2021-05-16": {  marked: true, selectedColor: 'blue', Title: 'Pictionary 1', Description: 'General Description'},
-    "2021-05-17": { marked: true, Title: 'Pictionary 2', Description: 'General Description', club: 'Uthaan'},
-    "2021-05-18": { marked: true, Title: 'Pictionary 3', Description: 'General Description', club: 'Uthaan' }
+    "2021-05-16": [{ marked: true, selectedColor: 'blue', Title: 'Pictionary 1', Description: 'General Description' }, { marked: true, selectedColor: 'blue', Title: 'Pictionary 2', Description: 'General Description' },{ marked: true, selectedColor: 'blue', Title: 'Pictionary 1', Description: 'General Description' }, { marked: true, selectedColor: 'blue', Title: 'Pictionary 2', Description: 'General Description' }],
+    "2021-05-17": [{ marked: true, Title: 'Pictionary 2', Description: 'General Description', club: 'Uthaan' }],
+    "2021-05-18": [{ marked: true, Title: 'Pictionary 3', Description: 'General Description', club: 'Uthaan' }]
   };
-  const [selectedTitle, setSelectedTitle] = useState("");
-  const [selectedDescription, setSelectedDescription] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
+  const [loading,setLoading] = useState(false);
+  useEffect(()=>{
+    const ac = new AbortController();
+    setLoading(true);
+    fetch(EVENT_CALENDER_EVENTS_URL,{
+        method:'GET',
+        headers: {
+         'Content-Type': 'application/json',
+         'Accept' : 'application/json'
+        }
+    }).then((response) => response.json())
+    .then(oEvents=>{
+        ac.abort();
+        console.log('Hi');
+        // console.log(oEvents)
+        setData(oEvents);
+        // console.log(oEvents);
+        setLoading(false);
+        console.log("Getting data from backend");
+        // console.log(data);
+    }).catch(err=>{
+        console.log(err);
+        alert(err.stack.message);
+    })
+  },[]);
 
   let HandleDialogClose = () => {
     setDialogVisible(false);
   }
 
-  let openDialog = (day) => {
-    let date = markedDates[day.dateString] ? markedDates[day.dateString] : {};
-    setSelectedTitle(date.Title ? date.Title : "No Events");
-    setSelectedDescription(date.Description ? date.Description : "No Events on this Day");
-    setSelectedColor(date.selectedColor ? date.selectedColor : "green");
+  let openDialog = async(day) => {
+    // console.log(events);
+    // console.log(day.dateString);
+    console.log(data[day.dateString]);
+    if(data[day.dateString]!== undefined){
+      let tempEvents = data[day.dateString].map(oEvent=>{
+        return{
+          "name" : oEvent.name,
+          "body" : oEvent.body,
+          "date" : oEvent.date
+        }
+      });
+      setEvents(tempEvents);
+    }else{
+      setEvents([{
+        "name" : "OOPS, Sorry! No Events on this Day :(",
+        "body" : ""
+      }]);
+    }
     setDialogVisible(true);
   }
-  return (
-    <View>
+    {
+      if(loading){
+        return(<ActivityIndicator style={{justifyContent: 'center', alignItems : 'center'}} animating={true} color={Colors.red800} />)
+      }else{
+        return(
+<View>
       <Portal>
-        <Dialog visible={DialogVisible} onDismiss={HandleDialogClose}>
-          <Dialog.ScrollArea>
-            <ScrollView contentContainerStyle={{ height: metrics.screenHeight / 1.5, alignItems: 'center', justifyContent: 'center' }}>
-              <Dialog.Title>
-                {selectedTitle}
-              </Dialog.Title>
-              <Dialog.Content>
-                <Paragraph>
-                  {selectedDescription}
-                </Paragraph>
-              </Dialog.Content>
-            </ScrollView>
+        <Dialog style={{ height : metrics.screenHeight / 1.5,justifyContent : 'center',alignContent : 'center' }} visible={DialogVisible} onDismiss={HandleDialogClose}>
+          <ScrollView contentContainerStyle={{justifyContent : 'center'}}>
+          <Dialog.ScrollArea style={{justifyContent : 'center'}}>
+
+               {
+                events.length > 0 ? events.map(oEvent => {
+                  return (
+                        <Dialog.Content key={oEvent._id}>
+                          <Dialog.Title>
+                            {oEvent.name}
+                          </Dialog.Title>
+                          <Dialog.Content style={{flexDirection : 'row' , justifyContent : 'space-between'}}>
+                            <Paragraph>
+                              {oEvent.body}
+                            </Paragraph>
+                            <Paragraph style={{fontWeight : '100'}}>
+                              {oEvent.date}
+                            </Paragraph>
+                          </Dialog.Content>
+                        </Dialog.Content>
+                    )
+                }) : null
+              } 
           </Dialog.ScrollArea>
+              </ScrollView>
         </Dialog>
       </Portal>
       <Calendar
@@ -67,11 +122,7 @@ const EventCalendar = () => {
           borderRadius: 10
         }}
         onDayPress={(day) => openDialog(day)}
-        markedDates={{
-          '2021-05-16': { selected: true, marked: true, selectedColor: 'red', backgroundColor: 'red' },
-          '2021-05-17': { marked: true, selectedColor: 'green' },
-          '2021-05-18': { marked: true, selectedColor: 'green', activeOpacity: 0 },
-        }}
+        markedDates={data}
         // Specify theme properties to override specific styles for calendar parts. Default = {}
         theme={{
           backgroundColor: '#faf9f9',
@@ -101,7 +152,9 @@ const EventCalendar = () => {
         hideExtraDays={true}
       />
     </View>
-  )
+        )
+      } 
+    }
 }
 
 export default EventCalendar;

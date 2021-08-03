@@ -11,6 +11,7 @@ module.exports = (router)=>{
     router.post('/addNotification',notifApi.AddNotification);
     router.get('/getMyNotifications/:batch',notifApi.getMyNotifications);
     router.get('/getEvents',eventApi.getAllEvents);
+    router.get('/getEventsForCalender',eventApi.getAllEventsForCalender);
     router.post('/addEvent',eventApi.AddEvent);
     router.get('/getClubData',clubApi.getClubData);
 }

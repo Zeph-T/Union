@@ -14,6 +14,7 @@ const Announcements = props => {
     const [date,setDate] = useState("");
     const [body,setBody] = useState("");
     const [data,setData ] = useState([]);
+    const [links , setLinks] = useState([]);
     useEffect(()=>{
         const ac = new AbortController();
         setLoading(true);
@@ -61,16 +62,17 @@ const Announcements = props => {
                                            {body}
                                        </Paragraph>
                                        <View style={{ marginVertical: metrics.marginMedium }}>
-                                           <SocialIcon
-                                               type='instagram'
+                                        {
+                                           links.map(link=>{
+                                               return (
+                                                <SocialIcon
+                                               type={link.media}
                                                button
-                                               title="Open in Instagram"
+                                               title={link.media}
                                            />
-                                           <SocialIcon
-                                               type='facebook'
-                                               button
-                                               title="Open in Facebook"
-                                           />
+                                               )
+                                           })
+                                        }
                                        </View>
                                    </Dialog.Content>
                                </ScrollView>
@@ -82,7 +84,7 @@ const Announcements = props => {
                            {
                                data.length > 0 && data.map((item, index) =>
                                (
-                                   <TouchableOpacity key={index}  onPress={() => { setTitle(data[index].name); setBody(data[index].body); setDate(data[index].date); showModal() }}>
+                                   <TouchableOpacity key={index}  onPress={() => { setTitle(data[index].name); setBody(data[index].body); setDate(data[index].date);setLinks(data[index].links); showModal() }}>
                                        <Card style={{ ...styleCard.announcementCard }}>
                                            <Card.Content>
                                                <View style={styleCard.HeadingStyle}>

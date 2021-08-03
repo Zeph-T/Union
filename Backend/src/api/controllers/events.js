@@ -16,6 +16,30 @@ export function getAllEvents(req,res){
     }
 }
 
+
+export function getAllEventsForCalender(req,res){
+    try{
+        Event.find().sort({"date":1}).then(oEvents=>{
+            let events = {};
+            oEvents.map(oEvent=>{
+                events[oEvent.date] = [];
+            })
+            oEvents.map(oEvent=>{
+                events[oEvent.date].push(oEvent);
+            })
+            console.log(events);
+            res.status(200);
+            return res.send(events);
+        }).catch(err=>{
+            res.status(400);
+            return res.send({'message' : err.stack});
+        })
+    }catch(err){
+        res.status(400);
+        return res.send({"message": err.stack});
+    }
+}
+
 // export function getEventByClub(req,res){
 //     try{
 //         Event.find({_id: mongoose.Types.ObjectId(req.params.id)}).populate({path:'Organiser',select:{Name:1,_id:0}}).then(oEvents=>{
