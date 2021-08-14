@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import {
-  ActivityIndicator,
-  Alert,
   Image,
   ScrollView,
   Text,
@@ -12,8 +10,15 @@ import styles from './styles';
 import Images from '../../Themes/Images'
 import Metrics from '../../Themes/Metrics';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../Redux/Thunks/auth';
+
 
 const StudentProfile = ({navigation}) => {
+    const dispatch = useDispatch();
+    const OnLogout = () => {
+      dispatch(logout());
+    }
     return (
         <ScrollView contentContainerStyle={styles.screen}>
         <View style={styles.imageView}>
@@ -64,7 +69,8 @@ const StudentProfile = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.card}
-          activeOpacity={0.8}>
+          activeOpacity={0.8}
+          onPress={()=>OnLogout()}>
           <MaterialIcons name="logout" size={Metrics.h2}  />
           <Text style={styles.text}>Logout</Text>
         </TouchableOpacity>

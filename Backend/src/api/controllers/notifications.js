@@ -21,10 +21,10 @@ export function getMyNotifications(req, res) {
 export function AddNotification(req, res) {
     try {
         let newNotif = new Notification;
-        newNotif.PostedBy = req.body.PostedBy;
-        newNotif.Title = req.body.title;
-        newNotif.Body = req.body.body;
-        newNotif.AllMembers = req.body.AllMembers;
+        newNotif.postedby = req.body.PostedBy;
+        newNotif.title = req.body.title;
+        newNotif.info = req.body.info;
+        newNotif.AllMembers = req.body.allMembers;
         newNotif.Batches = req.body.Batches;
 
         newNotif.save((err, oNotif) => {
@@ -33,7 +33,7 @@ export function AddNotification(req, res) {
                 return res.send({ 'message': 'Error Adding the Notification' });
             } else {
                 res.status(200);
-                return res.status({ 'message': 'Posted Succesfully' });
+                return res.send({ 'message': 'Posted Succesfully' });
             }
         })
     } catch (err) {

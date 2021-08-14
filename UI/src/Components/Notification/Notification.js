@@ -23,6 +23,7 @@ const Notifications = props => {
         .then(oEvents=>{
             setData(oEvents);
             setLoading(false);
+            console.log(oEvents);
             // console.log(data);
         }).catch(err=>{
             console.log(err);
@@ -48,7 +49,7 @@ const Notifications = props => {
                                                 {item.title}
                                             </Title>
                                             <Title>
-                                                📅{item.date}
+                                                📅{ new Date(item.date).getFullYear() + "-" + new Date(item.date).getMonth() + '-' + new Date(item.date).getDay()}
                                             </Title>
                                         </View>
                                         <Paragraph>

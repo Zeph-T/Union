@@ -8,3 +8,4 @@ export const EVENTS_URL = BASE_URL + '/api/getEvents';
 export const CLUB_DATA = BASE_URL  + '/api/getClubData';
 export const ADD_EVENT = BASE_URL + '/api/addEvent'
 export const EVENT_CALENDER_EVENTS_URL = BASE_URL  + '/api/getEventsForCalender'
+export const ADD_NOTIFICATION_URL = BASE_URL + '/api/addNotification';

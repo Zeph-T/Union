@@ -4,16 +4,49 @@ import { TextInput, Dialog, Portal, Title, Subheading, RadioButton } from 'react
 import MultiSelect from 'react-native-multiple-select';
 import items from '../../Utils/batches';
 import styleCard from './styles';
+import { ADD_NOTIFICATION_URL } from '../../Utils/constants';
 const AddNotification = (props) => {
     const [eventName, setEventName] = useState('');
     const [title, setTitle] = useState('');
     const [checked, setChecked] = useState('first');
     const [mode, setMode] = useState('date');
     const [selectedItems, setSelectedItems] = useState([]);
-    const [show, setShow] = useState(false);
-
-
     let multiSelect;
+    const [eventBody , setEventBody] = useState("");
+const AddNotif = () => {
+        let batches = [];
+        let allMembers;
+        if(checked === 'first'){
+            allMembers = true;
+        }else{
+            selectedItems.forEach(item=>{
+                batches.push(items.find(oItem=>oItem.id == item));
+            });
+            batches = batches.map(oBatch=> oBatch.name);
+            allMembers = false;
+        }
+        // console.log(batches);
+        let body = {
+            PostedBy : eventName,
+            title : title,
+            info : eventBody,
+            allMembers : allMembers,
+            Batches : batches
+        }
+        fetch(ADD_NOTIFICATION_URL,{
+            method:'POST',
+            headers: {
+             'Content-Type': 'application/json',
+             'Accept' : 'application/json'
+            },
+            body :JSON.stringify(body) 
+        }).then(res=>res.json()).then(res=>{
+            console.log(res);
+            alert(res.message);
+        }).catch(err=>{
+            alert(err.message);
+        })
+    }
 
     const onSelectedItemsChange = selectedItems => {
         setSelectedItems(selectedItems);
@@ -42,10 +75,10 @@ const AddNotification = (props) => {
                 />
                 <TextInput
                     label="Notification"
-                    value={eventName}
+                    value={eventBody}
                     mode="outlined"
                     style={styleCard.textinput}
-                    onChangeText={text => setEventName(text)}
+                    onChangeText={text => setEventBody(text)}
                     multiline
                     numberOfLines={5}
                 />
@@ -94,11 +127,11 @@ const AddNotification = (props) => {
                     }
                 </View>
                 <View style={styleCard.submitButton}>
-                    <Button title='post' color='red' />
+                    <Button onPress={()=>AddNotif()} title='post' color='red' />
                 </View>
             </ScrollView>
         </SafeAreaView>
     )
 }
 
-export default AddNotification;
+export default AddNotification; 
