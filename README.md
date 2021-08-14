@@ -1,6 +1,8 @@
 # IIITM App
+This is a College Application, which reduces the bridge between Clubs and acts like a medium between Students and Faculty Members
+<br>
 ![](https://github.com/Zeph-T/Union/blob/main/UI/public/1.png)
-IIITM Application is a College Application, which reduces the bridge between Clubs and acts like a medium between Students and Faculty Members
+
 *** 
 ### Tech Stack and Concepts used:
 * __Frontend:__ React-Native, React Native Paper, NativeBase
