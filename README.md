@@ -19,9 +19,10 @@ particular Club.
 
 
 ## Clubs
+Sometimes, it becomes difficult for Fresher's to remember the Clubs and their officials inroder to connect with them personally. This sections helps students to get acquinted to various college club Information.
 ![](https://github.com/Zeph-T/Union/blob/main/UI/public/4.png)
 <br>
-Sometimes, it becomes difficult for Fresher's to remember the Clubs and their officials inroder to connect with them personally. This sections helps students to get acquinted to various college club Information.
+
 
 ## Admins
 Admin account is for Club Officials and Faculty Members who want to convey some notification or announcements about certain Event or schedule a reminder to the Students
@@ -35,5 +36,6 @@ Admin account is for Club Officials and Faculty Members who want to convey some 
 
 
 ## Event Calendar
-![](https://github.com/Zeph-T/Union/blob/main/UI/public/event.png)
 The Event Calendar contains all the events posted by Club Officials, where student can refer inorder to know the schedule.This leads to the concept of Event Overlapping and also helps maintain healthy relationship within College Clubs.
+![](https://github.com/Zeph-T/Union/blob/main/UI/public/event.png)
+
