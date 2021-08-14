@@ -1,5 +1,5 @@
 # FarmEasy
-![](https://github.com/Zeph-T/FarmEasy/blob/master/farmeasy-frontend/public/farmeasy%20(7).jpeg)
+![](https://github.com/Zeph-T/Union/blob/main/UI/public/1.png)
 ### We Innovate your cultivation!
 FarmEasy is an agricultural and rural development project that uses the power of machine learning concepts to aid our hardworking farmers in three important aspects -
 * __Crop Analyzation__
